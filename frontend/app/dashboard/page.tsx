@@ -3,16 +3,21 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
-import { getApplications, type ApplicationRecord, type ApplicationStatus, APPLICATION_STATUSES } from "@/lib/applications";
+import {
+  APPLICATION_STATUSES,
+  getApplications,
+  type ApplicationRecord,
+  type ApplicationStatus,
+} from "@/lib/applications";
 import { getMatchedCompanies, type MatchedCompany } from "@/lib/api";
 
 const EARLY_STAGE_STATUSES: ApplicationStatus[] = ["未応募", "ES提出済み", "適性検査"];
 
-function countApplicationsByStatus(applications: ApplicationRecord[], status: ApplicationStatus) {
+function countByStatus(applications: ApplicationRecord[], status: ApplicationStatus) {
   return applications.filter((application) => application.status === status).length;
 }
 
-function formatAverageScore(applications: ApplicationRecord[]) {
+function formatAverageMatchScore(applications: ApplicationRecord[]) {
   const scoredApplications = applications.filter((application) => typeof application.match_score === "number");
 
   if (scoredApplications.length === 0) {
@@ -26,28 +31,30 @@ function formatAverageScore(applications: ApplicationRecord[]) {
 export default function DashboardPage() {
   const [applications, setApplications] = useState<ApplicationRecord[]>([]);
   const [recommendedCompanies, setRecommendedCompanies] = useState<MatchedCompany[]>([]);
-  const [loadingRecommendations, setLoadingRecommendations] = useState(true);
   const [loadError, setLoadError] = useState("");
+  const [isLoadingRecommendations, setIsLoadingRecommendations] = useState(true);
 
   useEffect(() => {
     setApplications(getApplications());
 
-    let isMounted = true;
+    let isActive = true;
 
     async function loadRecommendations() {
-      setLoadingRecommendations(true);
+      setIsLoadingRecommendations(true);
+      setLoadError("");
+
       try {
         const matchedCompanies = await getMatchedCompanies();
-        if (isMounted) {
+        if (isActive) {
           setRecommendedCompanies(matchedCompanies.slice(0, 5));
         }
       } catch {
-        if (isMounted) {
+        if (isActive) {
           setLoadError("おすすめ企業の取得に失敗しました。backend が起動しているか確認してください。");
         }
       } finally {
-        if (isMounted) {
-          setLoadingRecommendations(false);
+        if (isActive) {
+          setIsLoadingRecommendations(false);
         }
       }
     }
@@ -55,43 +62,40 @@ export default function DashboardPage() {
     loadRecommendations();
 
     return () => {
-      isMounted = false;
+      isActive = false;
     };
   }, []);
 
   const applicationCount = applications.length;
-  const offerCount = countApplicationsByStatus(applications, "内定");
+  const offerCount = countByStatus(applications, "内定");
   const interviewCount = ["一次面接", "二次面接", "最終面接"].reduce(
-    (sum, status) => sum + countApplicationsByStatus(applications, status as ApplicationStatus),
+    (sum, status) => sum + countByStatus(applications, status as ApplicationStatus),
     0,
   );
-  const averageMatchScore = formatAverageScore(applications);
+  const averageMatchScore = formatAverageMatchScore(applications);
 
-  const statusSummary = useMemo(
+  const statusDistribution = useMemo(
     () =>
       APPLICATION_STATUSES.map((status) => ({
         status,
-        count: countApplicationsByStatus(applications, status),
+        count: countByStatus(applications, status),
       })),
     [applications],
   );
 
-  const earlyStageCount = EARLY_STAGE_STATUSES.reduce(
-    (sum, status) => sum + countApplicationsByStatus(applications, status),
-    0,
-  );
+  const earlyStageCount = EARLY_STAGE_STATUSES.reduce((sum, status) => sum + countByStatus(applications, status), 0);
   const earlyStageRatio = applicationCount > 0 ? earlyStageCount / applicationCount : 0;
-  const averageMatchScoreNumber = averageMatchScore === "--" ? null : Number(averageMatchScore);
+  const averageMatchScoreValue = averageMatchScore === "--" ? null : Number(averageMatchScore);
 
   const insights = [
     applicationCount === 0
-      ? "応募管理がまだありません。企業一覧から気になる企業を応募管理に追加すると、ここで全体像を確認できます。"
+      ? "応募管理がまだありません。企業一覧から気になる企業を追加すると、ここで全体像を確認できます。"
       : null,
-    averageMatchScoreNumber !== null && averageMatchScoreNumber >= 80
-      ? "相性の良い企業が多く、現時点では前向きに進めやすい状態です。"
+    averageMatchScoreValue !== null && averageMatchScoreValue >= 80
+      ? "相性の高い企業が多く、前向きに進めやすい状態です。"
       : null,
     applicationCount > 0 && earlyStageRatio >= 0.5
-      ? "応募は初期ステージが中心です。次の選考に進める企業を優先して整理すると、進捗が見やすくなります。"
+      ? "応募は初期ステージが中心です。次の選考に進める企業を優先して整理すると見やすくなります。"
       : null,
   ].filter(Boolean) as string[];
 
@@ -131,7 +135,7 @@ export default function DashboardPage() {
           </div>
 
           <div className="mt-6 space-y-4">
-            {statusSummary.map((item) => {
+            {statusDistribution.map((item) => {
               const percentage = applicationCount > 0 ? (item.count / applicationCount) * 100 : 0;
 
               return (
@@ -169,7 +173,11 @@ export default function DashboardPage() {
           </div>
 
           <div className="mt-6 rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-4 text-sm leading-6 text-slate-600">
-            {loadError ? loadError : loadingRecommendations ? "おすすめ企業を読み込み中です。" : "おすすめ企業と応募状況をあわせて確認できます。"}
+            {loadError
+              ? loadError
+              : isLoadingRecommendations
+                ? "おすすめ企業を読み込み中です。"
+                : "おすすめ企業と応募状況をあわせて確認できます。"}
           </div>
         </article>
       </section>
