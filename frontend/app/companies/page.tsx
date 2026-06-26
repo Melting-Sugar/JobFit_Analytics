@@ -1,13 +1,13 @@
 import Link from "next/link";
 
-import { getCompanies, type Company } from "@/lib/api";
+import { getMatchedCompanies, type MatchedCompany } from "@/lib/api";
 
 export default async function CompaniesPage() {
-  let companies: Company[] = [];
+  let companies: MatchedCompany[] = [];
   let loadError = "";
 
   try {
-    companies = await getCompanies();
+    companies = (await getMatchedCompanies()).sort((left, right) => right.match_score - left.match_score);
   } catch {
     loadError = "FastAPI backend に接続できませんでした。backend を起動してから再読み込みしてください。";
   }
@@ -38,8 +38,8 @@ export default async function CompaniesPage() {
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-600">{company.industry}</p>
                   <h3 className="mt-2 text-lg font-semibold text-slate-950">{company.name}</h3>
                 </div>
-                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
-                  #{company.id}
+                <span className="rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
+                  相性 {company.match_score}
                 </span>
               </div>
 
@@ -55,14 +55,36 @@ export default async function CompaniesPage() {
                   <dd className="mt-1 font-medium text-slate-900">{company.location}</dd>
                 </div>
                 <div className="rounded-2xl bg-slate-50 px-3 py-2">
-                  <dt className="text-xs text-slate-500">平均年収</dt>
-                  <dd className="mt-1 font-medium text-slate-900">{company.average_salary}</dd>
+                  <dt className="text-xs text-slate-500">総合相性スコア</dt>
+                  <dd className="mt-1 text-lg font-semibold text-slate-950">{company.match_score}</dd>
                 </div>
                 <div className="rounded-2xl bg-slate-50 px-3 py-2">
                   <dt className="text-xs text-slate-500">月平均残業時間</dt>
                   <dd className="mt-1 font-medium text-slate-900">{company.overtime_hours}h</dd>
                 </div>
               </dl>
+
+              <div className="mt-5 space-y-3">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">おすすめ理由</p>
+                  <ul className="mt-2 space-y-2 text-sm leading-6 text-slate-700">
+                    {company.recommendation_reasons.slice(0, 2).map((reason) => (
+                      <li key={reason} className="rounded-2xl bg-emerald-50 px-3 py-2 text-emerald-900">
+                        {reason}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {company.concerns.length > 0 ? (
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">懸念点</p>
+                    <p className="mt-2 rounded-2xl bg-amber-50 px-3 py-2 text-sm leading-6 text-amber-900">
+                      {company.concerns[0]}
+                    </p>
+                  </div>
+                ) : null}
+              </div>
             </Link>
           ))
         )}

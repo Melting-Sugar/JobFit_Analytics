@@ -18,6 +18,16 @@ export type Company = {
   description: string;
 };
 
+export type MatchedCompany = Company & {
+  weighted_satisfaction_score: number;
+  cosine_similarity_score: number;
+  career_priority_score: number;
+  risk_penalty: number;
+  match_score: number;
+  recommendation_reasons: string[];
+  concerns: string[];
+};
+
 //const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://127.0.0.1:8000"
 
@@ -39,4 +49,12 @@ export function getCompanies(): Promise<Company[]> {
 
 export function getCompanyById(id: number): Promise<Company> {
   return fetchJson<Company>(`/companies/${id}`);
+}
+
+export function getMatchedCompanies(): Promise<MatchedCompany[]> {
+  return fetchJson<MatchedCompany[]>("/matching/companies");
+}
+
+export function getMatchedCompanyById(id: number): Promise<MatchedCompany> {
+  return fetchJson<MatchedCompany>(`/matching/companies/${id}`);
 }

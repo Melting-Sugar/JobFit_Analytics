@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import { getCompanyById } from "@/lib/api";
+import { getMatchedCompanyById } from "@/lib/api";
 
 export default async function CompanyDetailPage({ params }: { params: { id: string } }) {
   const companyId = Number(params.id);
@@ -12,7 +12,7 @@ export default async function CompanyDetailPage({ params }: { params: { id: stri
   let company;
 
   try {
-    company = await getCompanyById(companyId);
+    company = await getMatchedCompanyById(companyId);
   } catch {
     return (
       <main className="space-y-8">
@@ -31,8 +31,22 @@ export default async function CompanyDetailPage({ params }: { params: { id: stri
     <main className="space-y-8">
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-600">企業詳細</p>
-        <h2 className="mt-2 text-3xl font-semibold text-slate-950">{company.name}</h2>
-        <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">{company.description}</p>
+          <h2 className="mt-2 text-3xl font-semibold text-slate-950">{company.name}</h2>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">{company.description}</p>
+      </section>
+
+      <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        {[
+          ["総合相性スコア", company.match_score],
+          ["条件満足度", company.weighted_satisfaction_score],
+          ["希望との近さ", company.cosine_similarity_score],
+          ["キャリア適合度", company.career_priority_score],
+        ].map(([label, value]) => (
+          <article key={label} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">{label}</p>
+            <p className="mt-2 text-3xl font-semibold text-slate-950">{value}</p>
+          </article>
+        ))}
       </section>
 
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -60,13 +74,43 @@ export default async function CompanyDetailPage({ params }: { params: { id: stri
           ["AI・データ活用", `${company.ai_data_score}`],
           ["自己成長環境", `${company.self_development_score}`],
           ["配属・案件不確実性", `${company.assignment_uncertainty_score}`],
-          ["情報不足リスク", `${company.information_risk_score}`],
+          ["情報開示の少なさ", `${company.information_risk_score}`],
         ].map(([label, value]) => (
           <article key={label} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">{label}</p>
             <p className="mt-2 text-lg font-semibold text-slate-950">{value}</p>
           </article>
         ))}
+      </section>
+
+      <section className="grid gap-4 md:grid-cols-2">
+        <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
+          <h3 className="text-xl font-semibold text-slate-950">おすすめ理由</h3>
+          <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-700">
+            {company.recommendation_reasons.map((reason) => (
+              <li key={reason} className="rounded-2xl bg-emerald-50 px-4 py-3 text-emerald-900">
+                {reason}
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
+          <h3 className="text-xl font-semibold text-slate-950">懸念点</h3>
+          {company.concerns.length > 0 ? (
+            <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-700">
+              {company.concerns.map((concern) => (
+                <li key={concern} className="rounded-2xl bg-amber-50 px-4 py-3 text-amber-900">
+                  {concern}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="mt-4 rounded-2xl bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-600">
+              現時点で大きな懸念はありません。
+            </p>
+          )}
+        </article>
       </section>
 
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
