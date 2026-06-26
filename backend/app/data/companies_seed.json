@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "name": "Company A",
-    "industry": "IT Services",
-    "job_type": "Software Engineer",
-    "location": "Tokyo",
+    "name": "株式会社A",
+    "industry": "IT・ソフトウェア",
+    "job_type": "ソフトウェアエンジニア",
+    "location": "東京都",
     "overtime_hours": 18,
     "annual_holidays": 125,
     "average_salary": 620,
@@ -16,14 +16,14 @@
     "prime_contractor_score": 8,
     "ses_risk_score": 2,
     "information_risk_score": 2,
-    "description": "Digital product development company with strong learning opportunities and balanced work style."
+    "description": "学習機会が多く、働き方のバランスも取りやすいデジタルプロダクト開発企業です。"
   },
   {
     "id": 2,
-    "name": "Company B",
-    "industry": "Fintech",
-    "job_type": "Data Analyst",
-    "location": "Remote",
+    "name": "株式会社B",
+    "industry": "フィンテック",
+    "job_type": "データアナリスト",
+    "location": "フルリモート",
     "overtime_hours": 12,
     "annual_holidays": 128,
     "average_salary": 680,
@@ -35,14 +35,14 @@
     "prime_contractor_score": 7,
     "ses_risk_score": 1,
     "information_risk_score": 1,
-    "description": "Finance platform company that values data-driven decision making and flexible work."
+    "description": "データドリブンな意思決定と柔軟な働き方を重視する金融プラットフォーム企業です。"
   },
   {
     "id": 3,
-    "name": "Company C",
-    "industry": "Consulting",
-    "job_type": "Business Consultant",
-    "location": "Osaka",
+    "name": "株式会社C",
+    "industry": "コンサルティング",
+    "job_type": "ビジネスコンサルタント",
+    "location": "大阪府",
     "overtime_hours": 42,
     "annual_holidays": 110,
     "average_salary": 580,
@@ -54,14 +54,14 @@
     "prime_contractor_score": 9,
     "ses_risk_score": 4,
     "information_risk_score": 4,
-    "description": "Large consulting group with a steep learning curve and strong exposure to clients."
+    "description": "顧客接点が多く、実務の中で成長しやすい大手コンサルティンググループです。"
   },
   {
     "id": 4,
-    "name": "Company D",
-    "industry": "Manufacturing",
-    "job_type": "Product Planner",
-    "location": "Nagoya",
+    "name": "株式会社D",
+    "industry": "製造業",
+    "job_type": "商品企画",
+    "location": "愛知県名古屋市",
     "overtime_hours": 22,
     "annual_holidays": 122,
     "average_salary": 590,
@@ -73,14 +73,14 @@
     "prime_contractor_score": 8,
     "ses_risk_score": 1,
     "information_risk_score": 2,
-    "description": "Established manufacturer with stable operations and a conservative but solid environment."
+    "description": "安定した事業基盤を持ち、堅実に働ける老舗メーカーです。"
   },
   {
     "id": 5,
-    "name": "Company E",
-    "industry": "Healthcare IT",
-    "job_type": "Data Engineer",
-    "location": "Fukuoka",
+    "name": "株式会社E",
+    "industry": "ヘルスケアIT",
+    "job_type": "データエンジニア",
+    "location": "福岡県",
     "overtime_hours": 16,
     "annual_holidays": 126,
     "average_salary": 640,
@@ -92,14 +92,14 @@
     "prime_contractor_score": 7,
     "ses_risk_score": 2,
     "information_risk_score": 2,
-    "description": "Healthcare technology vendor with strong data usage and steady hiring needs."
+    "description": "医療領域の課題解決に向けて、データ活用が進んでいるヘルステック企業です。"
   },
   {
     "id": 6,
-    "name": "Company F",
-    "industry": "Education",
-    "job_type": "EdTech Product Manager",
-    "location": "Sapporo",
+    "name": "株式会社F",
+    "industry": "教育サービス",
+    "job_type": "EdTechプロダクトマネージャー",
+    "location": "北海道札幌市",
     "overtime_hours": 10,
     "annual_holidays": 130,
     "average_salary": 560,
@@ -111,14 +111,14 @@
     "prime_contractor_score": 6,
     "ses_risk_score": 1,
     "information_risk_score": 1,
-    "description": "Education-focused startup that emphasizes learning, experimentation, and user empathy."
+    "description": "学習と挑戦を大切にする、教育分野のスタートアップです。"
   },
   {
     "id": 7,
-    "name": "Company G",
-    "industry": "Logistics",
-    "job_type": "Operations Analyst",
-    "location": "Tokyo",
+    "name": "株式会社G",
+    "industry": "物流",
+    "job_type": "オペレーションアナリスト",
+    "location": "東京都",
     "overtime_hours": 28,
     "annual_holidays": 118,
     "average_salary": 570,
@@ -130,14 +130,14 @@
     "prime_contractor_score": 8,
     "ses_risk_score": 2,
     "information_risk_score": 3,
-    "description": "Distribution company with broad operations and a focus on process improvement."
+    "description": "幅広い物流オペレーションを持ち、業務改善の余地が大きい企業です。"
   },
   {
     "id": 8,
-    "name": "Company H",
-    "industry": "Media",
-    "job_type": "UI Designer",
-    "location": "Yokohama",
+    "name": "株式会社H",
+    "industry": "メディア",
+    "job_type": "UIデザイナー",
+    "location": "神奈川県横浜市",
     "overtime_hours": 14,
     "annual_holidays": 124,
     "average_salary": 610,
@@ -149,14 +149,14 @@
     "prime_contractor_score": 7,
     "ses_risk_score": 1,
     "information_risk_score": 2,
-    "description": "Content and media company with a creative team and a product-minded culture."
+    "description": "クリエイティブな制作体制と、プロダクト志向の文化を持つメディア企業です。"
   },
   {
     "id": 9,
-    "name": "Company I",
-    "industry": "Energy",
-    "job_type": "Data Scientist",
-    "location": "Sendai",
+    "name": "株式会社I",
+    "industry": "エネルギー",
+    "job_type": "データサイエンティスト",
+    "location": "宮城県仙台市",
     "overtime_hours": 20,
     "annual_holidays": 123,
     "average_salary": 650,
@@ -168,14 +168,14 @@
     "prime_contractor_score": 8,
     "ses_risk_score": 1,
     "information_risk_score": 1,
-    "description": "Energy company expanding digital operations and analytics capabilities."
+    "description": "デジタル化と分析基盤の強化を進めるエネルギー企業です。"
   },
   {
     "id": 10,
-    "name": "Company J",
-    "industry": "Retail",
-    "job_type": "Marketing Specialist",
-    "location": "Kyoto",
+    "name": "株式会社J",
+    "industry": "小売",
+    "job_type": "マーケティングスペシャリスト",
+    "location": "京都府",
     "overtime_hours": 24,
     "annual_holidays": 120,
     "average_salary": 540,
@@ -187,14 +187,14 @@
     "prime_contractor_score": 7,
     "ses_risk_score": 2,
     "information_risk_score": 2,
-    "description": "Retail brand with a mix of offline and online customer experiences."
+    "description": "店舗とECの両方で顧客体験を磨いている小売ブランドです。"
   },
   {
     "id": 11,
-    "name": "Company K",
-    "industry": "Telecom",
-    "job_type": "Backend Engineer",
-    "location": "Tokyo",
+    "name": "株式会社K",
+    "industry": "通信",
+    "job_type": "バックエンドエンジニア",
+    "location": "東京都",
     "overtime_hours": 26,
     "annual_holidays": 121,
     "average_salary": 670,
@@ -206,14 +206,14 @@
     "prime_contractor_score": 8,
     "ses_risk_score": 1,
     "information_risk_score": 2,
-    "description": "Infrastructure company with large-scale systems and strong engineering standards."
+    "description": "大規模システムと通信インフラを支える技術基盤の強い企業です。"
   },
   {
     "id": 12,
-    "name": "Company L",
-    "industry": "Mobility",
-    "job_type": "Product Manager",
-    "location": "Nagoya",
+    "name": "株式会社L",
+    "industry": "モビリティ",
+    "job_type": "プロダクトマネージャー",
+    "location": "愛知県名古屋市",
     "overtime_hours": 19,
     "annual_holidays": 124,
     "average_salary": 630,
@@ -225,14 +225,14 @@
     "prime_contractor_score": 7,
     "ses_risk_score": 2,
     "information_risk_score": 1,
-    "description": "Mobility service company working on user-facing products and operational data."
+    "description": "ユーザー向けサービスと運用データの両方を扱うモビリティ系企業です。"
   },
   {
     "id": 13,
-    "name": "Company M",
-    "industry": "Cloud SaaS",
-    "job_type": "DevOps Engineer",
-    "location": "Osaka",
+    "name": "株式会社M",
+    "industry": "クラウドSaaS",
+    "job_type": "DevOpsエンジニア",
+    "location": "大阪府",
     "overtime_hours": 17,
     "annual_holidays": 126,
     "average_salary": 660,
@@ -244,14 +244,14 @@
     "prime_contractor_score": 8,
     "ses_risk_score": 1,
     "information_risk_score": 1,
-    "description": "Cloud software company with a high engineering bar and a remote-friendly culture."
+    "description": "高い技術水準とリモートフレンドリーな文化を持つクラウドソフトウェア企業です。"
   },
   {
     "id": 14,
-    "name": "Company N",
-    "industry": "Food Tech",
-    "job_type": "QA Engineer",
-    "location": "Fukuoka",
+    "name": "株式会社N",
+    "industry": "フードテック",
+    "job_type": "QAエンジニア",
+    "location": "福岡県",
     "overtime_hours": 13,
     "annual_holidays": 127,
     "average_salary": 550,
@@ -263,14 +263,14 @@
     "prime_contractor_score": 6,
     "ses_risk_score": 1,
     "information_risk_score": 1,
-    "description": "Food technology company combining operations knowledge with product development."
+    "description": "現場運用の知見とプロダクト開発を組み合わせるフードテック企業です。"
   },
   {
     "id": 15,
-    "name": "Company O",
-    "industry": "Robotics",
-    "job_type": "Research Engineer",
-    "location": "Tokyo",
+    "name": "株式会社O",
+    "industry": "ロボティクス",
+    "job_type": "研究開発エンジニア",
+    "location": "東京都",
     "overtime_hours": 30,
     "annual_holidays": 119,
     "average_salary": 700,
@@ -282,14 +282,14 @@
     "prime_contractor_score": 9,
     "ses_risk_score": 1,
     "information_risk_score": 2,
-    "description": "Robotics research organization with strong AI, hardware, and experimental work."
+    "description": "AI、ハードウェア、実験的な開発を横断するロボティクス研究組織です。"
   },
   {
     "id": 16,
-    "name": "Company P",
-    "industry": "Finance",
-    "job_type": "Risk Analyst",
-    "location": "Osaka",
+    "name": "株式会社P",
+    "industry": "金融",
+    "job_type": "リスクアナリスト",
+    "location": "大阪府",
     "overtime_hours": 21,
     "annual_holidays": 122,
     "average_salary": 640,
@@ -301,14 +301,14 @@
     "prime_contractor_score": 9,
     "ses_risk_score": 1,
     "information_risk_score": 1,
-    "description": "Financial services company with a focus on governance, risk, and operational excellence."
+    "description": "ガバナンスとリスク管理を重視する金融サービス企業です。"
   },
   {
     "id": 17,
-    "name": "Company Q",
-    "industry": "HR Tech",
-    "job_type": "Frontend Engineer",
-    "location": "Remote",
+    "name": "株式会社Q",
+    "industry": "HRテック",
+    "job_type": "フロントエンドエンジニア",
+    "location": "フルリモート",
     "overtime_hours": 11,
     "annual_holidays": 129,
     "average_salary": 590,
@@ -320,14 +320,14 @@
     "prime_contractor_score": 7,
     "ses_risk_score": 1,
     "information_risk_score": 1,
-    "description": "People-tech startup with strong product culture and remote collaboration support."
+    "description": "プロダクト文化が強く、リモートでの協働もしやすい人材系スタートアップです。"
   },
   {
     "id": 18,
-    "name": "Company R",
-    "industry": "Travel",
-    "job_type": "Business Analyst",
-    "location": "Tokyo",
+    "name": "株式会社R",
+    "industry": "旅行",
+    "job_type": "ビジネスアナリスト",
+    "location": "東京都",
     "overtime_hours": 23,
     "annual_holidays": 117,
     "average_salary": 560,
@@ -339,14 +339,14 @@
     "prime_contractor_score": 6,
     "ses_risk_score": 2,
     "information_risk_score": 3,
-    "description": "Travel platform balancing seasonal demand with a broad customer base."
+    "description": "季節変動のある需要を扱いながら、多様な顧客基盤を持つ旅行サービス企業です。"
   },
   {
     "id": 19,
-    "name": "Company S",
-    "industry": "Health Tech",
-    "job_type": "ML Engineer",
-    "location": "Yokohama",
+    "name": "株式会社S",
+    "industry": "ヘルステック",
+    "job_type": "機械学習エンジニア",
+    "location": "神奈川県横浜市",
     "overtime_hours": 15,
     "annual_holidays": 128,
     "average_salary": 680,
@@ -358,14 +358,14 @@
     "prime_contractor_score": 8,
     "ses_risk_score": 1,
     "information_risk_score": 1,
-    "description": "Health technology company where machine learning and user data are part of the product core."
+    "description": "機械学習とユーザーデータがプロダクトの中心にあるヘルステック企業です。"
   },
   {
     "id": 20,
-    "name": "Company T",
-    "industry": "Construction Tech",
-    "job_type": "Systems Engineer",
-    "location": "Nagoya",
+    "name": "株式会社T",
+    "industry": "建設テック",
+    "job_type": "システムエンジニア",
+    "location": "愛知県名古屋市",
     "overtime_hours": 27,
     "annual_holidays": 116,
     "average_salary": 600,
@@ -377,14 +377,14 @@
     "prime_contractor_score": 8,
     "ses_risk_score": 2,
     "information_risk_score": 2,
-    "description": "Construction technology company modernizing field operations with software."
+    "description": "建設現場の業務をソフトウェアで近代化しているテクノロジー企業です。"
   },
   {
     "id": 21,
-    "name": "Company U",
-    "industry": "Marketing SaaS",
-    "job_type": "Growth Marketer",
-    "location": "Tokyo",
+    "name": "株式会社U",
+    "industry": "マーケティングSaaS",
+    "job_type": "グロースマーケター",
+    "location": "東京都",
     "overtime_hours": 14,
     "annual_holidays": 125,
     "average_salary": 580,
@@ -396,14 +396,14 @@
     "prime_contractor_score": 6,
     "ses_risk_score": 1,
     "information_risk_score": 2,
-    "description": "SaaS company for marketing teams with a fast product iteration cycle."
+    "description": "高速なプロダクト改善を行うマーケティング向けSaaS企業です。"
   },
   {
     "id": 22,
-    "name": "Company V",
-    "industry": "Semiconductor",
-    "job_type": "Data Platform Engineer",
-    "location": "Tsukuba",
+    "name": "株式会社V",
+    "industry": "半導体",
+    "job_type": "データ基盤エンジニア",
+    "location": "茨城県つくば市",
     "overtime_hours": 24,
     "annual_holidays": 123,
     "average_salary": 690,
@@ -415,14 +415,14 @@
     "prime_contractor_score": 9,
     "ses_risk_score": 1,
     "information_risk_score": 1,
-    "description": "Hardware and semiconductor company investing in data infrastructure and analytics."
+    "description": "データ基盤と分析活用を強化しているハードウェア系企業です。"
   },
   {
     "id": 23,
-    "name": "Company W",
-    "industry": "Government Tech",
-    "job_type": "Research Analyst",
-    "location": "Sendai",
+    "name": "株式会社W",
+    "industry": "行政DX",
+    "job_type": "リサーチアナリスト",
+    "location": "宮城県仙台市",
     "overtime_hours": 9,
     "annual_holidays": 130,
     "average_salary": 520,
@@ -434,14 +434,14 @@
     "prime_contractor_score": 8,
     "ses_risk_score": 1,
     "information_risk_score": 1,
-    "description": "Public-sector software vendor with stable projects and a policy-minded environment."
+    "description": "安定した案件と政策寄りの視点を持つ公共系ソフトウェア企業です。"
   },
   {
     "id": 24,
-    "name": "Company X",
-    "industry": "Gaming",
-    "job_type": "Client Engineer",
-    "location": "Tokyo",
+    "name": "株式会社X",
+    "industry": "ゲーム",
+    "job_type": "クライアントエンジニア",
+    "location": "東京都",
     "overtime_hours": 32,
     "annual_holidays": 118,
     "average_salary": 640,
@@ -453,14 +453,14 @@
     "prime_contractor_score": 5,
     "ses_risk_score": 2,
     "information_risk_score": 4,
-    "description": "Game development studio with fast-moving product cycles and high creative energy."
+    "description": "開発スピードが速く、創造性の高いゲーム開発スタジオです。"
   },
   {
     "id": 25,
-    "name": "Company Y",
-    "industry": "Biotech",
-    "job_type": "Data Analyst",
-    "location": "Osaka",
+    "name": "株式会社Y",
+    "industry": "バイオテック",
+    "job_type": "データアナリスト",
+    "location": "大阪府",
     "overtime_hours": 18,
     "annual_holidays": 127,
     "average_salary": 630,
@@ -472,14 +472,14 @@
     "prime_contractor_score": 8,
     "ses_risk_score": 1,
     "information_risk_score": 1,
-    "description": "Biotechnology company with strong research depth and data-heavy workflows."
+    "description": "研究開発の深さとデータ活用を両立しているバイオ系企業です。"
   },
   {
     "id": 26,
-    "name": "Company Z",
-    "industry": "Renewable Energy",
-    "job_type": "Solution Consultant",
-    "location": "Fukuoka",
+    "name": "株式会社Z",
+    "industry": "再生可能エネルギー",
+    "job_type": "ソリューションコンサルタント",
+    "location": "福岡県",
     "overtime_hours": 16,
     "annual_holidays": 126,
     "average_salary": 610,
@@ -491,6 +491,6 @@
     "prime_contractor_score": 7,
     "ses_risk_score": 1,
     "information_risk_score": 1,
-    "description": "Renewable energy business that mixes operations, consulting, and digital tools."
+    "description": "事業運営とコンサルティング、デジタル活用を組み合わせた再エネ企業です。"
   }
 ]
