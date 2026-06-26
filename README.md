@@ -1,79 +1,93 @@
 # JobFit Analytics
 
-JobFit Analytics は、就職活動中の学生を対象にしたポートフォリオ用プロトタイプです。企業データとユーザーの希望条件をもとに、企業との相性を可視化し、応募進捗もまとめて管理できる Web アプリとして設計しています。
+JobFit Analytics は、就職活動中の学生を想定したポートフォリオ用プロトタイプです。FastAPI のバックエンドと Next.js のフロントエンドを使い、ダミー企業データをもとに企業比較、相性スコア算出、応募管理、分析の見せ方までを一通りまとめています。
 
-## 目的
+## Project Overview
 
-就活では、次の 2 つが大きな負担になります。
+このアプリは、企業データを一覧・詳細で確認しながら、希望条件に基づくマッチング結果、応募状況、スコアの考え方を同じ体験の中で扱えるようにした就活分析ツールです。UI は日本語で統一しており、ポートフォリオとして実装の意図が伝わることを重視しています。
 
-- 多数の企業を横並びで比較し、自分の条件に合う企業を見つけにくい
-- 複数企業の応募・選考状況を同時に管理しづらい
+## Purpose As A Portfolio Project
 
-このプロトタイプは、企業データ、ユーザー嗜好、データ分析を組み合わせて fit score を算出し、企業選びと進捗管理を一つの画面で支援することを目指します。
+このプロジェクトは、本番運用を前提にしたサービスではなく、次のような実装力を示すための作品です。
 
-## ターゲットユーザー
+- API 設計とフロントエンド連携
+- ダミーデータを使った分析 UI の設計
+- マッチング指標の可視化
+- ブラウザ保存を使った軽量な状態管理
+- 将来の DB 化を見据えた段階的な設計
 
-- 就職活動中の学生
-- 複数企業へ同時に応募している利用者
-- 企業研究と選考管理を一体で行いたい利用者
+## Target Users And Problems Solved
 
-## このプロジェクトで示したい技術要素
+対象は、就職活動中の学生や、複数企業を並行して比較したい利用者です。主に次の課題を扱います。
 
-このリポジトリは、単なる UI サンプルではなく、以下の実践スキルを見せるためのポートフォリオです。
+- 企業ごとの条件差を比較しづらい
+- 自分の希望に合う企業を絞り込みにくい
+- 応募した企業の進捗を一元管理しにくい
+- スコアの意味が分からず、結果を解釈しづらい
 
-- AI の活用方針を含む分析設計
-- 統計・データ分析の基礎
-- Web アプリケーション開発
-- データベースを見据えたプロダクト設計
+## Current Features
+
+- FastAPI バックエンド
+- Next.js フロントエンド
+- JSON で管理するダミー企業データ
+- 企業一覧ページと企業詳細ページ
+- 日本語 UI
+- Matching score calculation API
+- Preference-based matching page
+- LocalStorage-based application tracking
+- Dashboard overview
+- Analysis lab explaining the scoring model
+
+## Scoring Model Overview
+
+企業は数値特徴量のベクトルとして扱います。年収、残業、休日は $0〜100$ に正規化し、1〜10 の特徴スコアは $0〜100$ に変換します。そのうえで、以下の指標を計算します。
+
+- `weighted_satisfaction_score`
+- `cosine_similarity_score`
+- `career_priority_score`
+- `risk_penalty`
+- `match_score`
+
+総合スコアは次の式で計算します。
+
+```text
+match_score =
+  0.5 * weighted_satisfaction_score
+  + 0.3 * cosine_similarity_score
+  + 0.2 * career_priority_score
+  - risk_penalty
+```
 
 ## Tech Stack
 
-- Frontend: Next.js, TypeScript, React, Tailwind CSS
-- Backend: FastAPI, Python
-- Analysis: pandas, scikit-learn
-- Database: SQLite を最初に採用し、将来的に PostgreSQL へ移行
+- Backend: FastAPI, Python, Pydantic, scikit-learn
+- Frontend: Next.js, React, TypeScript, Tailwind CSS
+- Data: JSON dummy data, browser localStorage
+- Planned later: SQLite, PostgreSQL
 
-## Current MVP 方針
+## Directory Structure
 
-最初の動く版では、DB はまだ使わず、JSON に保存したダミー企業データを FastAPI から返します。フロントエンドはページ構成を先に用意し、後から API とつなぎます。
+```text
+JobFit_Analytics/
+├─ backend/
+│  └─ app/
+│     ├─ data/
+│     ├─ routers/
+│     ├─ services/
+│     └─ main.py
+├─ frontend/
+│  ├─ app/
+│  │  ├─ applications/
+│  │  ├─ companies/
+│  │  ├─ dashboard/
+│  │  ├─ lab/
+│  │  ├─ preferences/
+│  │  └─ layout.tsx
+│  └─ lib/
+└─ README.md
+```
 
-## MVP Roadmap
-
-1. バックエンドの最小 API を作る
-	- `/companies` でダミー企業データを返す
-	- `/companies/{company_id}` で企業詳細を返す
-	- `/analytics/dashboard` で分析用サマリーを返す
-
-2. フロントエンドのページ構成を作る
-	- `/`
-	- `/companies`
-	- `/companies/[id]`
-	- `/preferences`
-	- `/dashboard`
-	- `/applications`
-	- `/lab`
-
-3. fit score の考え方を段階的に実装する
-	- まずはルールベースの簡易スコア
-	- 次に pandas で集計・分析
-	- その後 scikit-learn を使った発展的な分析へ拡張
-
-4. データ保存を追加する
-	- 最初は SQLite
-	- 将来的には PostgreSQL へ移行できる構成にする
-
-## 現在の状態
-
-- README の整理
-- FastAPI バックエンドの雛形作成予定
-- Next.js フロントエンドの雛形作成予定
-- JSON ベースのダミー企業データ追加予定
-
-この段階では、まずローカルで backend が起動し、`/companies` がダミーデータを返せる状態を目標にします。
-
-## ローカル起動
-
-### Backend
+## How To Run Backend
 
 ```bash
 cd backend
@@ -83,7 +97,9 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-### Frontend
+Backend は通常 `http://localhost:8000` で起動します。
+
+## How To Run Frontend
 
 ```bash
 cd frontend
@@ -91,4 +107,33 @@ npm install
 npm run dev
 ```
 
-Frontend は Next.js の雛形を追加済みですが、まだ依存関係はインストールしていません。最初の `npm install` が必要です。
+Frontend は通常 `http://localhost:3000` で起動します。
+
+## API Endpoints
+
+- `GET /companies`
+- `GET /companies/{company_id}`
+- `GET /matching/companies`
+- `POST /matching/companies`
+- `GET /matching/companies/{company_id}`
+- `GET /analytics/dashboard`
+
+## Current Limitations
+
+- 企業データはダミー JSON です。
+- preferences と applications はまだ DB に保存していません。
+- application tracking は frontend の localStorage に依存しています。
+- 認証機能は未実装です。
+- スコアリングはプロトタイプ用の重みづけです。
+- API 連携はローカル開発を前提にしています。
+
+## Future Roadmap
+
+1. SQLite を使った永続化
+2. PostgreSQL への移行を見据えたデータ層の整理
+3. 認証・ユーザー管理の追加
+4. 応募履歴と選考結果の保存
+5. スコア重みの調整と分析精度の改善
+6. 比較・分析ページの拡張
+
+この README は現在の MVP 実装に合わせて更新しています。プロトタイプとしての位置づけを保ちながら、後から DB 化や認証を追加できる構成です。
