@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { getMatchedCompanyById } from "@/lib/api";
+import ApplicationTrackingButton from "../ApplicationTrackingButton";
 
 export default async function CompanyDetailPage({ params }: { params: { id: string } }) {
   const companyId = Number(params.id);
@@ -118,12 +119,10 @@ export default async function CompanyDetailPage({ params }: { params: { id: stri
           <div>
             <h3 className="text-xl font-semibold text-slate-950">応募管理</h3>
             <p className="mt-2 text-sm leading-6 text-slate-600">
-              この企業を応募管理に追加するためのプレースホルダです。
+              この企業を応募管理に保存できます。保存後は応募管理ページでステータスを更新できます。
             </p>
           </div>
-          <button className="rounded-full bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-500">
-            応募管理に追加
-          </button>
+          <ApplicationTrackingButton company={company} />
         </div>
       </section>
     </main>
