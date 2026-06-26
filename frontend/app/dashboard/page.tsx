@@ -1,18 +1,17 @@
 const metrics = [
-  { label: "Total companies", value: "26" },
-  { label: "Average fit score", value: "--" },
-  { label: "Tracked applications", value: "--" },
-  { label: "Open interviews", value: "--" },
+  { label: "企業一覧", value: "26" },
+  { label: "相性スコア（平均）", value: "--" },
+  { label: "応募管理中", value: "--" },
+  { label: "面接進行中", value: "--" },
 ];
 
 export default function DashboardPage() {
   return (
     <main className="space-y-8">
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
-        <h2 className="text-2xl font-semibold text-slate-950">Dashboard</h2>
+        <h2 className="text-2xl font-semibold text-slate-950">ダッシュボード</h2>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">
-          The analytics dashboard will combine company data, preferences, and application status into a
-          compact overview.
+          推薦結果、応募状況、注目指標を俯瞰するためのプレースホルダーです。
         </p>
       </section>
 
@@ -27,10 +26,10 @@ export default function DashboardPage() {
 
       <section className="grid gap-4 lg:grid-cols-2">
         {[
-          "Top fit companies chart",
-          "Industry distribution chart",
-          "Location distribution chart",
-          "Application pipeline summary",
+          "条件満足度の推移（プレースホルダー）",
+          "キャリア適合度の比較（プレースホルダー）",
+          "配属・案件不確実性の分布（プレースホルダー）",
+          "情報開示の少なさの分布（プレースホルダー）",
         ].map((item) => (
           <article key={item} className="rounded-3xl border border-dashed border-slate-300 bg-white p-6 text-sm text-slate-600">
             {item}

@@ -16,9 +16,9 @@ export default async function CompaniesPage() {
     <main className="space-y-8">
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
         <h2 className="text-2xl font-semibold text-slate-950">企業一覧</h2>
-        <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">
-          FastAPI バックエンドからダミー企業データを取得して、企業一覧を表示します。
-        </p>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">
+            企業一覧を表示します。クリックすることで、詳細な内容を確認することができます。これはプロトタイプ版なのでダミー企業データを取得していますが、APIなどで実際の企業データを取得できるよう拡張する予定です。
+          </p>
       </section>
 
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">

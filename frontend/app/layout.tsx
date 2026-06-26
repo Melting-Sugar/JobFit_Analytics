@@ -4,16 +4,16 @@ import Link from "next/link";
 import "./globals.css";
 
 const navItems = [
-  { href: "/companies", label: "Companies" },
-  { href: "/preferences", label: "Preferences" },
-  { href: "/dashboard", label: "Dashboard" },
-  { href: "/applications", label: "Applications" },
-  { href: "/lab", label: "Lab" },
+  { href: "/companies", label: "企業一覧" },
+  { href: "/preferences", label: "希望条件" },
+  { href: "/dashboard", label: "ダッシュボード" },
+  { href: "/applications", label: "応募管理" },
+  { href: "/lab", label: "分析ラボ" },
 ];
 
 export const metadata: Metadata = {
-  title: "JobFit Analytics",
-  description: "Job hunting analytics prototype for students.",
+  title: "JobFit Analytics | 就活分析ポートフォリオ",
+  description: "就活向けの企業比較・相性スコア・応募管理を行う分析プロトタイプ。",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   JobFit Analytics
                 </p>
                 <h1 className="mt-1 text-2xl font-semibold text-slate-950">
-                  Job hunting fit score prototype
+                  就活分析ポートフォリオ
                 </h1>
               </div>
               <nav className="flex flex-wrap gap-2">
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="flex-1">{children}</main>
 
           <footer className="mt-10 border-t border-slate-200/70 pt-4 text-sm text-slate-500">
-            Portfolio prototype for job hunting students. Dummy data first, database later.
+            学生向け就活分析プロトタイプ（MVP）。現在はダミーデータで動作します。
           </footer>
         </div>
       </body>

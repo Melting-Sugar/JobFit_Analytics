@@ -2,24 +2,24 @@ import Link from "next/link";
 
 const highlights = [
   {
-    title: "Company fit analysis",
-    description: "Compare company data and user preferences to surface fit scores.",
+    title: "企業相性の可視化",
+    description: "企業データと希望条件を照合し、相性スコアを一覧で確認できます。",
   },
   {
-    title: "Application tracking",
-    description: "Track applied, interviewing, offer, and rejected companies in one place.",
+    title: "応募状況の整理",
+    description: "応募管理ページで選考ステータスを段階ごとに把握できます。",
   },
   {
-    title: "Data-oriented portfolio",
-    description: "Showcase AI, statistics, analytics, and database product thinking.",
+    title: "分析設計のポートフォリオ",
+    description: "スコア設計・データ活用・画面設計の一連の流れを示す試作です。",
   },
 ];
 
 const roadmap = [
-  "Backend API with dummy JSON data",
-  "Frontend page scaffold for all core routes",
-  "Preference capture and basic fit score UX",
-  "SQLite storage and PostgreSQL-ready data design",
+  "ダミーJSONを利用したバックエンドAPI",
+  "主要ルートのフロントエンド画面ひな形",
+  "希望条件入力と相性スコア表示の基礎導線",
+  "SQLite対応と将来拡張を想定したデータ設計",
 ];
 
 export default function HomePage() {
@@ -28,27 +28,27 @@ export default function HomePage() {
       <section className="overflow-hidden rounded-[2rem] border border-slate-200/80 bg-slate-950 px-6 py-14 text-white shadow-soft sm:px-10">
         <div className="max-w-3xl space-y-6">
           <span className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-sky-200">
-            MVP scaffold
+            MVP プロトタイプ
           </span>
           <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Find better-fit companies and manage the whole job search flow.
+            企業比較から応募管理まで、就活の判断を一画面で。
           </h2>
           <p className="text-base leading-7 text-slate-300 sm:text-lg">
-            This prototype is designed for job-hunting students who need to compare many companies,
-            understand fit at a glance, and track multiple application pipelines without losing context.
+            複数企業の比較、相性指標の確認、応募状況の整理を一貫して行うための
+            日本語ポートフォリオ用プロトタイプです。
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
               href="/companies"
               className="rounded-full bg-sky-400 px-5 py-3 font-semibold text-slate-950 transition hover:bg-sky-300"
             >
-              Browse companies
+              企業一覧を見る
             </Link>
             <Link
               href="/dashboard"
               className="rounded-full border border-white/20 px-5 py-3 font-semibold text-white transition hover:bg-white/10"
             >
-              View dashboard
+              ダッシュボードを見る
             </Link>
           </div>
         </div>
@@ -65,13 +65,13 @@ export default function HomePage() {
 
       <section className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
         <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
-          <h3 className="text-xl font-semibold text-slate-950">What this app demonstrates</h3>
+          <h3 className="text-xl font-semibold text-slate-950">このアプリで確認できること</h3>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {[
-              "AI-oriented product thinking",
-              "Statistics and data analysis",
-              "Modern web application development",
-              "Database-backed product architecture",
+              "相性スコアの設計方針",
+              "条件満足度・キャリア適合度の評価軸",
+              "応募管理を含む画面設計",
+              "将来のデータ永続化を見据えた構成",
             ].map((item) => (
               <div key={item} className="rounded-2xl bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700">
                 {item}
@@ -81,7 +81,7 @@ export default function HomePage() {
         </article>
 
         <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
-          <h3 className="text-xl font-semibold text-slate-950">MVP roadmap</h3>
+          <h3 className="text-xl font-semibold text-slate-950">MVPロードマップ</h3>
           <ol className="mt-4 space-y-3 text-sm text-slate-600">
             {roadmap.map((item, index) => (
               <li key={item} className="flex gap-3">
