@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-import { getCompanies } from "@/lib/api";
+import { getCompanies, type Company } from "@/lib/api";
 
 export default async function CompaniesPage() {
-  let companies = [];
+  let companies: Company[] = [];
   let loadError = "";
 
   try {

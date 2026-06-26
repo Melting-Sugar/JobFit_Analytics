@@ -59,7 +59,8 @@ export default async function CompanyDetailPage({ params }: { params: { id: stri
           ["成長性", `${company.growth_score}`],
           ["AI・データ活用", `${company.ai_data_score}`],
           ["自己成長環境", `${company.self_development_score}`],
-          ["リスク指標", `SES ${company.ses_risk_score} / 情報 ${company.information_risk_score}`],
+          ["配属・案件不確実性", `${company.assignment_uncertainty_score}`],
+          ["情報不足リスク", `${company.information_risk_score}`],
         ].map(([label, value]) => (
           <article key={label} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">{label}</p>

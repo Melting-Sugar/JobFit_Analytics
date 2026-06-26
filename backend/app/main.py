@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.routers.analytics import router as analytics_router
 from app.routers.companies import router as companies_router
+from app.routers.matching import router as matching_router
 
 
 app = FastAPI(title="JobFit Analytics API", version="0.1.0")
@@ -20,6 +21,7 @@ app.add_middleware(
 
 app.include_router(companies_router)
 app.include_router(analytics_router)
+app.include_router(matching_router)
 
 
 @app.get("/")
@@ -31,6 +33,8 @@ def root() -> dict[str, object]:
             "/companies",
             "/companies/{company_id}",
             "/analytics/dashboard",
+            "/matching/companies",
+            "/matching/companies/{company_id}",
         ],
     }
 

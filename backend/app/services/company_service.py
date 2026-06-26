@@ -36,7 +36,7 @@ def calculate_fit_score(company: dict[str, object]) -> float:
     )
     risk_features = (
         float(company["overtime_hours"])
-        + float(company["ses_risk_score"])
+        + float(company["assignment_uncertainty_score"])
         + float(company["information_risk_score"])
     )
     score = positive_features * 2.2 - risk_features * 1.3

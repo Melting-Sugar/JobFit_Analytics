@@ -14,7 +14,7 @@
     "ai_data_score": 9,
     "self_development_score": 8,
     "prime_contractor_score": 8,
-    "ses_risk_score": 2,
+    "assignment_uncertainty_score": 2,
     "information_risk_score": 2,
     "description": "学習機会が多く、働き方のバランスも取りやすいデジタルプロダクト開発企業です。"
   },
@@ -33,7 +33,7 @@
     "ai_data_score": 8,
     "self_development_score": 9,
     "prime_contractor_score": 7,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 1,
     "description": "データドリブンな意思決定と柔軟な働き方を重視する金融プラットフォーム企業です。"
   },
@@ -52,7 +52,7 @@
     "ai_data_score": 5,
     "self_development_score": 7,
     "prime_contractor_score": 9,
-    "ses_risk_score": 4,
+    "assignment_uncertainty_score": 4,
     "information_risk_score": 4,
     "description": "顧客接点が多く、実務の中で成長しやすい大手コンサルティンググループです。"
   },
@@ -71,7 +71,7 @@
     "ai_data_score": 4,
     "self_development_score": 6,
     "prime_contractor_score": 8,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 2,
     "description": "安定した事業基盤を持ち、堅実に働ける老舗メーカーです。"
   },
@@ -90,7 +90,7 @@
     "ai_data_score": 8,
     "self_development_score": 8,
     "prime_contractor_score": 7,
-    "ses_risk_score": 2,
+    "assignment_uncertainty_score": 2,
     "information_risk_score": 2,
     "description": "医療領域の課題解決に向けて、データ活用が進んでいるヘルステック企業です。"
   },
@@ -109,7 +109,7 @@
     "ai_data_score": 7,
     "self_development_score": 9,
     "prime_contractor_score": 6,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 1,
     "description": "学習と挑戦を大切にする、教育分野のスタートアップです。"
   },
@@ -128,7 +128,7 @@
     "ai_data_score": 5,
     "self_development_score": 5,
     "prime_contractor_score": 8,
-    "ses_risk_score": 2,
+    "assignment_uncertainty_score": 2,
     "information_risk_score": 3,
     "description": "幅広い物流オペレーションを持ち、業務改善の余地が大きい企業です。"
   },
@@ -147,7 +147,7 @@
     "ai_data_score": 6,
     "self_development_score": 8,
     "prime_contractor_score": 7,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 2,
     "description": "クリエイティブな制作体制と、プロダクト志向の文化を持つメディア企業です。"
   },
@@ -166,7 +166,7 @@
     "ai_data_score": 9,
     "self_development_score": 7,
     "prime_contractor_score": 8,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 1,
     "description": "デジタル化と分析基盤の強化を進めるエネルギー企業です。"
   },
@@ -185,7 +185,7 @@
     "ai_data_score": 5,
     "self_development_score": 6,
     "prime_contractor_score": 7,
-    "ses_risk_score": 2,
+    "assignment_uncertainty_score": 2,
     "information_risk_score": 2,
     "description": "店舗とECの両方で顧客体験を磨いている小売ブランドです。"
   },
@@ -204,7 +204,7 @@
     "ai_data_score": 8,
     "self_development_score": 8,
     "prime_contractor_score": 8,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 2,
     "description": "大規模システムと通信インフラを支える技術基盤の強い企業です。"
   },
@@ -223,7 +223,7 @@
     "ai_data_score": 7,
     "self_development_score": 9,
     "prime_contractor_score": 7,
-    "ses_risk_score": 2,
+    "assignment_uncertainty_score": 2,
     "information_risk_score": 1,
     "description": "ユーザー向けサービスと運用データの両方を扱うモビリティ系企業です。"
   },
@@ -242,7 +242,7 @@
     "ai_data_score": 8,
     "self_development_score": 8,
     "prime_contractor_score": 8,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 1,
     "description": "高い技術水準とリモートフレンドリーな文化を持つクラウドソフトウェア企業です。"
   },
@@ -261,7 +261,7 @@
     "ai_data_score": 6,
     "self_development_score": 7,
     "prime_contractor_score": 6,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 1,
     "description": "現場運用の知見とプロダクト開発を組み合わせるフードテック企業です。"
   },
@@ -280,7 +280,7 @@
     "ai_data_score": 10,
     "self_development_score": 8,
     "prime_contractor_score": 9,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 2,
     "description": "AI、ハードウェア、実験的な開発を横断するロボティクス研究組織です。"
   },
@@ -299,7 +299,7 @@
     "ai_data_score": 7,
     "self_development_score": 6,
     "prime_contractor_score": 9,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 1,
     "description": "ガバナンスとリスク管理を重視する金融サービス企業です。"
   },
@@ -318,7 +318,7 @@
     "ai_data_score": 7,
     "self_development_score": 9,
     "prime_contractor_score": 7,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 1,
     "description": "プロダクト文化が強く、リモートでの協働もしやすい人材系スタートアップです。"
   },
@@ -337,7 +337,7 @@
     "ai_data_score": 5,
     "self_development_score": 5,
     "prime_contractor_score": 6,
-    "ses_risk_score": 2,
+    "assignment_uncertainty_score": 2,
     "information_risk_score": 3,
     "description": "季節変動のある需要を扱いながら、多様な顧客基盤を持つ旅行サービス企業です。"
   },
@@ -356,7 +356,7 @@
     "ai_data_score": 10,
     "self_development_score": 8,
     "prime_contractor_score": 8,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 1,
     "description": "機械学習とユーザーデータがプロダクトの中心にあるヘルステック企業です。"
   },
@@ -375,7 +375,7 @@
     "ai_data_score": 6,
     "self_development_score": 6,
     "prime_contractor_score": 8,
-    "ses_risk_score": 2,
+    "assignment_uncertainty_score": 2,
     "information_risk_score": 2,
     "description": "建設現場の業務をソフトウェアで近代化しているテクノロジー企業です。"
   },
@@ -394,7 +394,7 @@
     "ai_data_score": 7,
     "self_development_score": 9,
     "prime_contractor_score": 6,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 2,
     "description": "高速なプロダクト改善を行うマーケティング向けSaaS企業です。"
   },
@@ -413,7 +413,7 @@
     "ai_data_score": 9,
     "self_development_score": 7,
     "prime_contractor_score": 9,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 1,
     "description": "データ基盤と分析活用を強化しているハードウェア系企業です。"
   },
@@ -432,7 +432,7 @@
     "ai_data_score": 6,
     "self_development_score": 6,
     "prime_contractor_score": 8,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 1,
     "description": "安定した案件と政策寄りの視点を持つ公共系ソフトウェア企業です。"
   },
@@ -451,7 +451,7 @@
     "ai_data_score": 8,
     "self_development_score": 8,
     "prime_contractor_score": 5,
-    "ses_risk_score": 2,
+    "assignment_uncertainty_score": 2,
     "information_risk_score": 4,
     "description": "開発スピードが速く、創造性の高いゲーム開発スタジオです。"
   },
@@ -470,7 +470,7 @@
     "ai_data_score": 8,
     "self_development_score": 7,
     "prime_contractor_score": 8,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 1,
     "description": "研究開発の深さとデータ活用を両立しているバイオ系企業です。"
   },
@@ -489,7 +489,7 @@
     "ai_data_score": 7,
     "self_development_score": 8,
     "prime_contractor_score": 7,
-    "ses_risk_score": 1,
+    "assignment_uncertainty_score": 1,
     "information_risk_score": 1,
     "description": "事業運営とコンサルティング、デジタル活用を組み合わせた再エネ企業です。"
   }

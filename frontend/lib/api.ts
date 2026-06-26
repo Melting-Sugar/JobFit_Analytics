@@ -13,7 +13,7 @@ export type Company = {
   ai_data_score: number;
   self_development_score: number;
   prime_contractor_score: number;
-  ses_risk_score: number;
+  assignment_uncertainty_score: number;
   information_risk_score: number;
   description: string;
 };
