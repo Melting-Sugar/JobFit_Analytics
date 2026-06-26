@@ -34,6 +34,7 @@ def root() -> dict[str, object]:
             "/companies/{company_id}",
             "/analytics/dashboard",
             "/matching/companies",
+            "POST /matching/companies",
             "/matching/companies/{company_id}",
         ],
     }

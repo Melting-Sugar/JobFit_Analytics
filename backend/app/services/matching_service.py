@@ -24,6 +24,10 @@ class UserPreferenceProfile:
 DEFAULT_USER_PREFERENCE = UserPreferenceProfile()
 
 
+def build_user_preference_profile(preference_data: dict[str, int]) -> UserPreferenceProfile:
+    return UserPreferenceProfile(**preference_data)
+
+
 def _to_percent_from_10_score(value: float) -> float:
     return max(0.0, min(100.0, value * 10.0))
 
@@ -218,10 +222,10 @@ def calculate_match_for_company(
     }
 
 
-def get_matching_companies() -> list[dict[str, object]]:
+def get_matching_companies(preference: UserPreferenceProfile = DEFAULT_USER_PREFERENCE) -> list[dict[str, object]]:
     companies = get_companies()
     dataset_ranges = _normalize_dataset_metrics(companies)
-    matched = [calculate_match_for_company(company, dataset_ranges) for company in companies]
+    matched = [calculate_match_for_company(company, dataset_ranges, preference) for company in companies]
     return sorted(matched, key=lambda company: float(company["match_score"]), reverse=True)
 
 
