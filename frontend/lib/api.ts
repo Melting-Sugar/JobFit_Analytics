@@ -41,6 +41,75 @@ export type MatchingPreferenceWeights = {
   risk_tolerance: number;
 };
 
+export type LabClusterItem = {
+  id: number;
+  name: string;
+  industry: string;
+  location: string;
+  cluster_id: number;
+  cluster_label: string;
+  cluster_description: string;
+};
+
+export type LabClusterSummary = {
+  cluster_label: string;
+  count: number;
+  description: string;
+};
+
+export type LabTradeoffCompany = {
+  id: number;
+  name: string;
+  industry: string;
+  location: string;
+  average_salary: number;
+  overtime_hours: number;
+  annual_holidays: number;
+  ai_data_score: number;
+  growth_score: number;
+  assignment_uncertainty_score: number;
+  information_risk_score: number;
+  tradeoff_score: number;
+  explanation: string;
+};
+
+export type LabTradeoffSection = {
+  title: string;
+  explanation: string;
+  companies: LabTradeoffCompany[];
+};
+
+export type LabSensitivityCompany = {
+  id: number;
+  name: string;
+  industry: string;
+  location: string;
+  match_score: number;
+  recommendation_reasons: string[];
+  concerns: string[];
+};
+
+export type LabSensitivityScenario = {
+  name: string;
+  description: string;
+  preferences: MatchingPreferenceWeights;
+  companies: LabSensitivityCompany[];
+};
+
+export type LabAnalytics = {
+  cluster_analysis: {
+    summaries: LabClusterSummary[];
+    companies: LabClusterItem[];
+  };
+  tradeoff_analysis: LabTradeoffSection[];
+  sensitivity_analysis: LabSensitivityScenario[];
+  score_explanation: {
+    summary: string;
+    formula: string;
+    metrics: Array<{ name: string; description: string }>;
+  };
+};
+
 //const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://127.0.0.1:8000"
 
@@ -93,4 +162,8 @@ export function submitMatchingPreferences(
   preference: MatchingPreferenceWeights,
 ): Promise<MatchedCompany[]> {
   return postJson<MatchedCompany[]>("/matching/companies", preference);
+}
+
+export function getLabAnalytics(): Promise<LabAnalytics> {
+  return fetchJson<LabAnalytics>("/analytics/lab");
 }
