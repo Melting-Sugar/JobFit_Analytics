@@ -15,13 +15,6 @@ const highlights = [
   },
 ];
 
-const roadmap = [
-  "ダミーJSONを利用したバックエンドAPI",
-  "主要ルートのフロントエンド画面ひな形",
-  "希望条件入力と相性スコア表示の基礎導線",
-  "SQLite対応と将来拡張を想定したデータ設計",
-];
-
 export default function HomePage() {
   return (
     <main className="space-y-10">
@@ -63,7 +56,7 @@ export default function HomePage() {
         ))}
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
+      <section>
         <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
           <h3 className="text-xl font-semibold text-slate-950">このアプリで確認できること</h3>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -78,20 +71,6 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </article>
-
-        <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
-          <h3 className="text-xl font-semibold text-slate-950">MVPロードマップ</h3>
-          <ol className="mt-4 space-y-3 text-sm text-slate-600">
-            {roadmap.map((item, index) => (
-              <li key={item} className="flex gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sky-100 text-xs font-semibold text-sky-700">
-                  {index + 1}
-                </span>
-                <span className="pt-1">{item}</span>
-              </li>
-            ))}
-          </ol>
         </article>
       </section>
     </main>
