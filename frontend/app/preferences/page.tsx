@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 
 import {
   submitMatchingPreferences,
@@ -39,15 +39,81 @@ const defaultPreferences: MatchingPreferenceWeights = {
 };
 
 const options = [1, 2, 3, 4, 5];
+const PREFERENCES_STORAGE_KEY = "jobfit-preferences";
+
+function isBrowser() {
+  return typeof window !== "undefined";
+}
+
+function isValidPreferenceValue(value: unknown): value is 1 | 2 | 3 | 4 | 5 {
+  return typeof value === "number" && Number.isInteger(value) && value >= 1 && value <= 5;
+}
+
+function isValidPreferenceObject(value: unknown): value is MatchingPreferenceWeights {
+  if (typeof value !== "object" || value === null) {
+    return false;
+  }
+
+  return preferenceFields.every((field) => isValidPreferenceValue((value as Record<string, unknown>)[field.key]));
+}
+
+function readStoredPreferences(): MatchingPreferenceWeights {
+  if (!isBrowser()) {
+    return defaultPreferences;
+  }
+
+  try {
+    const rawValue = window.localStorage.getItem(PREFERENCES_STORAGE_KEY);
+    if (!rawValue) {
+      return defaultPreferences;
+    }
+
+    const parsedValue = JSON.parse(rawValue) as unknown;
+    if (!isValidPreferenceObject(parsedValue)) {
+      return defaultPreferences;
+    }
+
+    return parsedValue;
+  } catch {
+    return defaultPreferences;
+  }
+}
+
+function saveStoredPreferences(preferences: MatchingPreferenceWeights) {
+  if (!isBrowser()) {
+    return;
+  }
+
+  window.localStorage.setItem(PREFERENCES_STORAGE_KEY, JSON.stringify(preferences));
+}
 
 export default function PreferencesPage() {
   const [preferences, setPreferences] = useState<MatchingPreferenceWeights>(defaultPreferences);
   const [results, setResults] = useState<MatchedCompany[]>([]);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [hasLoadedPreferences, setHasLoadedPreferences] = useState(false);
+
+  useEffect(() => {
+    setPreferences(readStoredPreferences());
+    setHasLoadedPreferences(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hasLoadedPreferences) {
+      return;
+    }
+
+    saveStoredPreferences(preferences);
+  }, [hasLoadedPreferences, preferences]);
 
   const updatePreference = (key: keyof MatchingPreferenceWeights, value: number) => {
-    setPreferences((current) => ({ ...current, [key]: value }));
+    const nextValue = Number.isInteger(value) && value >= 1 && value <= 5 ? value : defaultPreferences[key];
+    setPreferences((current) => ({ ...current, [key]: nextValue }));
+  };
+
+  const handleResetPreferences = () => {
+    setPreferences(defaultPreferences);
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -71,7 +137,7 @@ export default function PreferencesPage() {
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
         <h2 className="text-2xl font-semibold text-slate-950">希望条件</h2>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">
-          重視したい条件を設定して、相性の高い企業を確認できます。入力内容は保存せず、その場で判定にのみ使います。
+          重視したい条件を設定して、相性の高い企業を確認できます。
         </p>
       </section>
 
@@ -107,6 +173,14 @@ export default function PreferencesPage() {
             className="w-full rounded-full bg-sky-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sky-500 disabled:cursor-not-allowed disabled:bg-slate-300"
           >
             {loading ? "判定中..." : "この条件で相性を確認"}
+          </button>
+
+          <button
+            type="button"
+            onClick={handleResetPreferences}
+            className="w-full rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700"
+          >
+            初期値に戻す
           </button>
 
           {errorMessage ? (
