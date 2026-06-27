@@ -97,7 +97,7 @@ JobFit_Analytics/
 └─ README.md
 ```
 
-## バックエンドの起動方法
+## 開発時の起動方法
 
 ```bash
 cd backend
@@ -109,15 +109,45 @@ uvicorn app.main:app --reload
 
 Backend は通常 `http://localhost:8000` で起動します。
 
-## フロントエンドの起動方法
+## デプロイ手順
+
+このプロジェクトは backend と frontend を別々に起動する構成です。本番では、先にビルドを行い、その後に各サービスを起動します。
+
+### 1. バックエンドを起動する
+
+```bash
+cd backend
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
+
+API は `http://<server>:8000` で公開されます。
+
+### 2. フロントエンドをビルドする
 
 ```bash
 cd frontend
 npm install
-npm run dev
+npm run build
 ```
 
-Frontend は通常 `http://localhost:3000` で起動します。
+### 3. フロントエンドを起動する
+
+```bash
+cd frontend
+npm run start -- --port 3000
+```
+
+Frontend は通常 `http://localhost:3000` で公開されます。
+
+### 4. 公開時の確認ポイント
+
+- フロントエンドから backend の URL にアクセスできること
+- backend の `BACKEND_CORS_ORIGINS` に本番のフロントエンド URL を含めること
+- frontend の `NEXT_PUBLIC_API_BASE_URL` を本番の backend URL に設定すること
+- ダミーデータ前提の挙動であるため、DB 連携が必要な場合は別途実装が必要なこと
 
 ## API エンドポイント
 
